@@ -24,9 +24,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Snippets API",
+        title="Room booking API",
         default_version="v1",
-        description="Test description",
+        description="Rooms can be listed, booked and filtered via the endpoints",
     ),
     public=True,
     permission_classes=[permissions.AllowAny],
