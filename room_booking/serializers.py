@@ -36,7 +36,15 @@ class OrderSerializer(serializers.ModelSerializer):
         """
 
         model = Order
-        fields = ("id", "user", "order_number", "room_id", "order_start_date", "order_end_date", "room",)
+        fields = (
+            "id",
+            "user",
+            "order_number",
+            "room_id",
+            "order_start_date",
+            "order_end_date",
+            "room",
+        )
 
     def validate(self, attrs: dict[str, Any]) -> dict[str, Any]:
         start_date = attrs.get("order_start_date")
@@ -46,10 +54,10 @@ class OrderSerializer(serializers.ModelSerializer):
 
         room_id = attrs.get("room_id")
         if Order.objects.filter(
-                Q(order_end_date__gte=start_date, order_start_date__lte=start_date)
-                | Q(order_end_date__gte=end_date, order_start_date__lte=end_date)
-                | Q(order_start_date__gte=start_date, order_end_date__lte=end_date),
-                room_id=room_id,
+            Q(order_end_date__gte=start_date, order_start_date__lte=start_date)
+            | Q(order_end_date__gte=end_date, order_start_date__lte=end_date)
+            | Q(order_start_date__gte=start_date, order_end_date__lte=end_date),
+            room_id=room_id,
         ).exists():
             raise serializers.ValidationError(
                 {

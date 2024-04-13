@@ -12,7 +12,7 @@ exclude =
     venv*,
     manage.py,
     *_pb2*,
-    */migrations/*.py
+    */migrations/*.py,
 
 extend-ignore =
     F401
