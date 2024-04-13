@@ -1,0 +1,19 @@
+[flake8]
+max-line-length = 120
+max-complexity=10
+inline-quotes="
+multiline-quotes="""
+docstring-quotes="""
+exclude =
+    .git,
+    __pycache__,
+    .venv,
+    .env,
+    venv*,
+    manage.py,
+    *_pb2*,
+    */migrations/*.py
+
+extend-ignore =
+    F401
+    E203

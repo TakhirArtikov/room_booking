@@ -1,0 +1,11 @@
+django==4.2.11
+djangorestframework==3.15.1
+django-filter==24.2
+drf_yasg==1.21.7
+psycopg2==2.9.9
+environs==11.0.0
+djangorestframework-simplejwt==5.3.1
+pylint==3.1.0
+flake8==7.0.0
+black==24.4.0
+mypy==1.9.0
