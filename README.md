@@ -20,3 +20,8 @@ It is all up
 ``` bash
 pytest
 ```
+
+### To run pylint run the following command:
+``` bash
+make lint
+```
