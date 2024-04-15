@@ -27,13 +27,14 @@ class RoomViewSet(ReadOnlyModelViewSet):
 
 class OrderViewSet(ModelViewSet):
     """
-    API endpoint that allows orders to do CRUD operations
+    API endpoint that allows orders to retrieve, create, delete operations
     """
 
     queryset = Order.objects.all()
     serializer_class = serializers.OrderSerializer
     permission_classes = [IsAuthenticated]
     pagination_class = LimitOffsetPagination
+    http_method_names = ["get", "post", "delete"]
 
     def get_queryset(self) -> QuerySet[Order]:
         return self.queryset.filter(user=self.request.user)
